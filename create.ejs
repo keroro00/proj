@@ -1,0 +1,29 @@
+<html>
+<head>
+<title> Inventory Management System</title>
+<style>
+    h1 {text-align: center;}
+    .Submit_button{text-align: center;}
+</style>
+</head>
+<body>
+    <form action="/database" method="GET">
+        <button onclick="">back</button>
+    </form>
+    <h1>Inventory Management System</h1>
+    <h2>Create New Inventory</h2>
+    <form action="/create" method="POST">
+        Name: <input type="text" name="Inv_Name" placeholder="Name" required><br><br>
+        Type: <input type="text" name="Inv_Type" placeholder="type of inventory"><br><br>
+        Quantity: <input type="text" name="Inv_Quan" placeholder="quantity"><br><br>
+        Street: <input type="text" name="Inv_Street" placeholder="Street"><br><br>
+        Building: <input type="text" name="Inv_Build" placeholder="Building"><br><br>
+        Country: <input type="text" name="Inv_Country" placeholder="Country"><br><br>
+        Zipcode: <input type="text" name="Inv_Zip" placeholder="Zipcode"><br><br>
+        GPS Latitude: <input type="text" name="Inv_Lat" placeholder="Latitude"><br><br>
+        GPS Longitude: <input type="text" name="Inv_Lon" placeholder="Longitude"><br><br>
+        Photo: <input type="text" name="Inv_Photo"><br><br>
+        <div class="Submit_button"><button type="submit">Create</button></div>
+    </form>
+</body>
+</html>

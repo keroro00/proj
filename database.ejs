@@ -1,0 +1,23 @@
+<html>
+<head>
+<title> Inventory Management System</title>
+<style>
+    h1 {text-align: center;}
+    .Submit_button{text-align: center;}
+</style>
+</head>
+<body>
+    <h1>Inventory Management System</h1>
+    <form action="/create" method="GET">
+        <button onclick="">Create</button>
+    </form>
+    <form action="/logout" method="GET">
+        <button onclick="">Logout</button>
+    </form>
+    <ul>
+        <% for (var doc of results) { %>
+            <li>Inventory Name: <a href="/detail?_id=<%= doc._id %>"><%= doc.name %></a></li>
+        <% } %>
+    </ul>
+</body>
+</html>

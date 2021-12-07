@@ -1,0 +1,26 @@
+<html>
+<head>
+<title> Inventory Management System</title>
+<style>
+    h1 {text-align: center;}
+    .Submit_button{text-align: center;}
+</style>
+</head>
+<body>
+    <form action="/database" method="GET">
+        <button onclick="">back</button>
+    </form>
+    <a href="/delete?_id=<%= results._id%>"btn btn-primary" role="button">Delete</a>
+    <h1>Inventory Management System7</h1>
+    <ul>
+
+            <li>Inventory Name:<%= results.name %></a></li>
+            <li>Inventory Name:<%= results.type %></a></li>
+            <li>Inventory Name:<%= results.inventory_address %></a></li>
+            <li>Inventory Name:<%= results.manager %></a></li>
+            <li>Inventory Name:<%= results.name %></a></li>
+            <li>Inventory Name:<%= results.name %></a></li>
+
+    </ul>
+</body>
+</html>

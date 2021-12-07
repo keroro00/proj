@@ -1,0 +1,17 @@
+{
+    "name": "server",
+    "description": "Mini-Project",
+    "author": "Tony Ho <s1224627@hkmu.edu.hk>",
+    "version": "0.0.1",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "ejs": "*",
+        "express": "^3.21.2",
+        "mongoose": "^4.10.8",
+        "cookie-session": "latest"
+    },
+    "engine": "node >= 12.0.0",
+    "scripts": {
+        "start": "node server.js"
+    }
+}
