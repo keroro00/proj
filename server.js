@@ -170,6 +170,58 @@ const DeleteInv = (req, res) => {
         });
     })
 }
+//api(name)
+const nameApi = (req,res,getName) => {
+
+    mongoose.connect(mongourl, {useMongoClient: true});
+    const db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'connection error'));
+    db.once('open', () => {
+        const Inventory = mongoose.model('Inventory', InventorySchema);
+  
+        const criteria = {name : getName};
+
+        Inventory.find(criteria, (err, results) => {
+                 
+            console.log(`# documents meeting the criteria ${JSON.stringify(criteria)}: ${results.length}`);
+            if (results.length== 0){
+                res.status(500).json({"error": "missing name"});
+            }
+
+            for (var doc of results) {
+               console.log("Found");
+               res.status(200).json(doc);
+             }
+                       
+            db.close();
+        })
+    })
+  }
+
+//api(type)
+const typeApi = (req,res,getType) => {
+
+    mongoose.connect(mongourl, {useMongoClient: true});
+    const db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'connection error'));
+    db.once('open', () => {
+        const Inventory = mongoose.model('Inventory', InventorySchema);
+  
+        const criteria = {type : getType};
+        Inventory.find(criteria, (err, results) => {
+            console.log(`# documents meeting the criteria ${JSON.stringify(criteria)}: ${results.length}`);    
+
+            if (results.length== 0){
+                res.status(500).json({"error": "missing type"});
+            }
+            
+            for (var doc of results) {             
+                res.status(200).json(doc);
+            }
+            db.close();
+        })
+    })
+  }
 
 //bodyparser
 app.set('view engine', 'ejs');
@@ -218,6 +270,14 @@ app.get('/detail', function(req, res) {
 app.get('/delete', function(req, res) {
     DeleteInv(req,res);
   });
+
+app.get('/api/inventory/name/:target',(req,res) =>{
+    nameApi(req,res,req.params.target);
+})
+
+app.get('/api/inventory/type/:target',(req,res) =>{
+    typeApi(req,res,req.params.target);
+})
 
 const server = app.listen(process.env.PORT || 8099, () => {
 const port = server.address().port;
