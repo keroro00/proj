@@ -172,6 +172,58 @@ const DeleteInv = (req, res) => {
 }
 
 //update
+const updateItem = (req, res) => {
+    
+    var Inv_Name = req.body.Inv_Name;
+    var Inv_Type = req.body.Inv_Type;
+    var Inv_Quan = req.body.Inv_Quan;
+    var Inv_Street = req.body.Inv_Street;
+    var Inv_Build = req.body.Inv_Build;
+    var Inv_Country = req.body.Inv_Country;
+    var Inv_Zipcode = req.body.Inv_Zipcode;
+    var Inv_Lat = req.body.Inv_Lat;
+    var Inv_Lon = req.body.Inv_Lon;
+    var Inv_Photo = req.body.Inv_Photo;
+    var Inv_ID =0;
+    
+    mongoose.connect(mongourl, {useMongoClient: true});
+    const db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'connection error'));
+    db.once('open', () => {
+        const Inventory = mongoose.model('Inventory', InventorySchema);
+        criteria=req.body._id;
+        tocheck ={"_id":criteria};
+        tochange={
+            "name": Inv_Name,
+            "type": Inv_Type,
+            "quantity": Inv_Quan,
+            "photo": Inv_Photo,
+            "photo_minetype": "",
+            "inventory_address":[ {
+              "street": Inv_Street,
+              "building": Inv_Build,
+              "country": Inv_Country,
+              "zipcode": Inv_Zipcode,
+              "coord": [{"latitude":Inv_Lat,"longitude":Inv_Lon}]
+            }]
+          }
+            if(req.body.Inv_manager==req.session.username){
+                Inventory.updateOne(tocheck,{$set: tochange}, (err,results) => {    
+
+                    if (err) throw err;
+                    console.log("Updated");
+                    db.close();
+                    res.render('/home/developer/proj/updateSuc.ejs');
+                })
+            }else{
+                console.log("you are not the owner");
+                res.redirect('/');
+            }
+        });
+}
+
+/*
+//update
 const updateItenm = (req, res) => {
     
     var Inv_Name = req.body.Inv_Name;
@@ -224,6 +276,7 @@ const updateItenm = (req, res) => {
         });
     })
 }
+*/
 
 //api(name)
 const nameApi = (req,res,getName) => {
@@ -252,6 +305,21 @@ const nameApi = (req,res,getName) => {
         })
     })
   }
+
+//let user input what to edit
+const handle_edit = (res, criteria) => {
+    mongoose.connect(mongourl, {useMongoClient: true});
+    const db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'connection error'));
+    db.once('open', () => {
+        const Inventory = mongoose.model('Inventory', InventorySchema);
+        Inventory.findOne(criteria, (err,results) => {
+            if (err) return console.error(err);
+            res.render('/home/developer/proj/update.ejs',{results:results});
+            db.close();
+        });
+    });
+}
 
 //api(type)
 const typeApi = (req,res,getType) => {
@@ -327,12 +395,11 @@ app.get('/delete', function(req, res) {
   });
 
 app.get('/update', (req,res) => {
-    res.render('/home/developer/proj/update.ejs');
-    pageLocation="Update";
+    handle_edit(res,req.query)
     });
 
 app.post('/update', (req, res)=>{
-    updateItenm(req,res);
+    updateItem(req,res);
   });
 
 app.get('/api/inventory/name/:target',(req,res) =>{
