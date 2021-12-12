@@ -13,8 +13,6 @@
     <h1>Inventory Management System</h1>
     <h2>Update Inventory</h2>
     <form action="/update" method="POST">
-        _id: <input type="text" name="_id" placeholder="_id" value="<%=results._id%>"><br><br>
-        manager: <input type="text" name="Inv_manager" placeholder="Manager" value="<%=results.manager%>"><br><br>
         Name: <input type="text" name="Inv_Name" placeholder="Name" required><br><br>
         Type: <input type="text" name="Inv_Type" placeholder="type of inventory"><br><br>
         Quantity: <input type="text" name="Inv_Quan" placeholder="quantity"><br><br>
@@ -26,6 +24,8 @@
         GPS Longitude: <input type="text" name="Inv_Lon" placeholder="Longitude"><br><br>
         Photo: <input type="text" name="Inv_Photo"><br><br>
         <div class="Submit_button"><button type="submit">Update</button></div>
+        <input type="hidden" name="_id" placeholder="_id" value="<%=results._id%>"><br><br>
+        <input type="hidden" name="Inv_manager" placeholder="Manager" value="<%=results.manager%>"><br><br>
     </form>
 </body>
 </html>
