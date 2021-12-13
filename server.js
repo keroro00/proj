@@ -86,9 +86,7 @@ const MatchUser = (req,res) => {
     db.on('error', console.error.bind(console, 'connection error'));
     db.once('open', () => {
         const Inventory = mongoose.model('Inventory', InventorySchema);
-        Inventory.count({}, function(error, numOfDocs) {
-            Inv_ID=numOfDocs;
-        });
+        Inv_ID++;
         // create a Inventory
         const pencil = new Inventory({
             inventory_ID:Inv_ID,
