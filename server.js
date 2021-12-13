@@ -2,7 +2,7 @@ let express = require('express');
 let app = express();
 let bp = require('body-parser');
 var session = require('cookie-session');
-var pageLocation = "";
+var Inv_ID=0;
 
 //mongoDB
 const ObjectID = require('mongodb').ObjectID;
