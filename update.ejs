@@ -24,7 +24,7 @@
         Zipcode: <input type="text" name="Inv_Zip" placeholder="Zipcode" value="<%=results.inventory_address[0].zipcode%>"><br><br>
         GPS Latitude: <input type="text" name="Inv_Lat" placeholder="Latitude" value="<%=results.inventory_address[0].coord[0].latitude%>"><br><br>
         GPS Longitude: <input type="text" name="Inv_Lon" placeholder="Longitude" value="<%=results.inventory_address[0].coord[0].longitude%>"><br><br>
-        Photo: <input type="text" name="Inv_Photo"><br><br>
+        Photo: <input type="file" name="Inv_Photo"><br><br>
         <div class="Submit_button"><button type="submit">Update</button></div>
         <input type="hidden" name="_id" placeholder="_id" value="<%=results._id%>"><br><br>
         <input type="hidden" name="Inv_manager" placeholder="Manager" value="<%=results.manager%>"><br><br>
