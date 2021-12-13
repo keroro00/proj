@@ -138,7 +138,7 @@ const ShowInv = (req,res) => {
         const criteria = {};
         Inventory.find(criteria, (err, results) => {
             console.log(`# documents meeting the criteria ${JSON.stringify(criteria)}: ${results.length}`);
-            res.render('/home/developer/proj/database.ejs',{results:results});
+            res.render('/database.ejs',{results:results});
             db.close();
         })
     })
@@ -152,7 +152,7 @@ const handle_Details = (res, criteria) => {
         const Inventory = mongoose.model('Inventory', InventorySchema);
         Inventory.findOne(criteria, (err,results) => {
             if (err) return console.error(err);
-            res.render('/home/developer/proj/detail.ejs',{results:results});
+            res.render('/detail.ejs',{results:results});
             db.close();
         });
     });
@@ -172,10 +172,10 @@ const DeleteInv = (req, res) => {
                 if (err) return console.error(err);
                 console.log("OK");
                 db.close();
-                res.render('/home/developer/proj/delete.ejs');
+                res.render('/delete.ejs');
             }
             )}
-        else res.render('/home/developer/proj/Error.ejs');
+        else res.render('/Error.ejs');
         });
     })
 }
@@ -221,11 +221,11 @@ const updateItem = (req, res) => {
                     if (err) throw err;
                     console.log("Updated");
                     db.close();
-                    res.render('/home/developer/proj/updateSuc.ejs');
+                    res.render('/updateSuc.ejs');
                 })
             }else{
                 console.log("you are not the owner");
-                res.render('/home/developer/proj/Error.ejs');
+                res.render('/Error.ejs');
             }
         });
 }
@@ -268,7 +268,7 @@ const handle_edit = (res, criteria) => {
         const Inventory = mongoose.model('Inventory', InventorySchema);
         Inventory.findOne(criteria, (err,results) => {
             if (err) return console.error(err);
-            res.render('/home/developer/proj/update.ejs',{results:results});
+            res.render('/update.ejs',{results:results});
             db.close();
         });
     });
@@ -313,7 +313,7 @@ app.get('/',function(req,res){
 
 
 app.get('/login', (req,res) => {
-    res.render('/home/developer/proj/login.ejs');
+    res.render('/login.ejs');
     pageLocation="Login";
 });
 
@@ -323,7 +323,7 @@ app.get('/database', (req,res) => {
 
 
 app.get("/map", (req,res) => {
-	res.render("/home/developer/proj/map.ejs", {
+	res.render("/map.ejs", {
 		lat:req.query.lat,
 		lon:req.query.lon,
 		zoom:req.query.zoom ? req.query.zoom : 15
@@ -332,7 +332,7 @@ app.get("/map", (req,res) => {
 });
 
 app.get('/create', (req,res) => {
-    res.render('/home/developer/proj/create.ejs');
+    res.render('/create.ejs');
     pageLocation="Create";
     });
 
