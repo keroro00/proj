@@ -6,13 +6,15 @@
     h2 {text-align: center;}
     .Submit_button{text-align: center;}
 </style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
     <form action="/database" method="GET">
-        <button onclick="">back</button>
+        <button class="btn btn-primary">back</button>
     </form>
-    <a href="/delete?_id=<%= results._id%>"btn btn-primary" role="button">Delete</a>
-    <a href="/update?_id=<%= results._id%>"btn btn-primary" role="button">Update</a>
+    <a href="/delete?_id=<%= results._id%>" class="btn btn-primary" role="button">Delete</a>
+    <a href="/update?_id=<%= results._id%>"class="btn btn-primary" role="button">Update</a>
     <h1>Inventory Management System</h1>
     <h2>Detail of <%= results.name %> </h2>
     <ul>
