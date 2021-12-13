@@ -28,7 +28,7 @@ const InventorySchema = mongoose.Schema({
     inventory_ID:{type: String},
     name: {type:String, required: true},
     type: {type: String},
-    quantity: {type:Number},
+    quantity: {type:String},
     photo: {type: String},
     photo_minetype: {type: String},
     inventory_address:[ {
@@ -36,7 +36,7 @@ const InventorySchema = mongoose.Schema({
       building: {type: String},
       country: {type: String},
       zipcode: {type: String},
-      coord: [{latitude:{type:Number},longitude:{type:Number}}]
+      coord: [{latitude:{type:String},longitude:{type:String}}]
     }],
     manager: {type:String, required: true}
   }
@@ -81,7 +81,6 @@ const MatchUser = (req,res) => {
     var Inv_Lat = req.body.Inv_Lat;
     var Inv_Lon = req.body.Inv_Lon;
     var Inv_Photo = req.body.Inv_Photo;
-    var Inv_ID =0;
     mongoose.connect(mongourl, {useMongoClient: true});
     const db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error'));
