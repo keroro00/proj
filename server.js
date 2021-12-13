@@ -22,8 +22,8 @@ const dbName = 'ProjectDatabase';
 var $ = require('jquery');
 
 // formidable
-app.use(formidable());
-app.set('view engine', 'ejs');
+//app.use(formidable());
+//app.set('view engine', 'ejs');
 
 //session
 app.use(session({ name:'session',keys:['authenticated','username','password']}));
