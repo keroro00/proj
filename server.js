@@ -163,7 +163,7 @@ const DeleteInv = (req, res) => {
                 res.render('/home/developer/proj/delete.ejs');
             }
             )}
-        else res.redirect('/');
+        else res.render('/home/developer/proj/Error.ejs');
         });
     })
 }
@@ -214,7 +214,7 @@ const updateItem = (req, res) => {
                 })
             }else{
                 console.log("you are not the owner");
-                res.redirect('/');
+                res.render('/home/developer/proj/Error.ejs');
             }
         });
 }
