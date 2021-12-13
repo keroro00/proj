@@ -193,7 +193,6 @@ const updateItem = (req, res) => {
     var Inv_Lat = req.body.Inv_Lat;
     var Inv_Lon = req.body.Inv_Lon;
     var Inv_Photo = req.body.Inv_Photo;
-    var Inv_ID =0;
     
     mongoose.connect(mongourl, {useMongoClient: true});
     const db = mongoose.connection;
