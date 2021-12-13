@@ -15,7 +15,7 @@
     <form action="/logout" method="GET">
         <button onclick="">Logout</button>
     </form>
-      <input style="width:100%" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search name:" name="bar">
+      <input style="width:100%" type="text" id="myInput" placeholder="Search name:" name="bar">
         <table id="myTable">
         <% for (var doc of results) { %>
             <tr><td><a href="/detail?_id=<%= doc._id %>"><%= doc.name %></a></td></tr>
