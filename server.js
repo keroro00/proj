@@ -13,6 +13,9 @@ const url = require('url');
 const mongourl = 'mongodb://Tony:123321@cluster0-shard-00-00.xuvcs.mongodb.net:27017,cluster0-shard-00-01.xuvcs.mongodb.net:27017,cluster0-shard-00-02.xuvcs.mongodb.net:27017/ProjectDatabase?ssl=true&replicaSet=atlas-20mjmm-shard-0&authSource=admin&retryWrites=true&w=majority';
 const mongoose = require('mongoose');
 
+//jquery
+var $ = require('jquery');
+
 //session
 app.use(session({ name:'session',keys:['authenticated','username','password']}));
 
