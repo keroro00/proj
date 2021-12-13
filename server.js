@@ -230,61 +230,6 @@ const updateItem = (req, res) => {
         });
 }
 
-/*
-//update
-const updateItenm = (req, res) => {
-    
-    var Inv_Name = req.body.Inv_Name;
-    var Inv_Type = req.body.Inv_Type;
-    var Inv_Quan = req.body.Inv_Quan;
-    var Inv_Street = req.body.Inv_Street;
-    var Inv_Build = req.body.Inv_Build;
-    var Inv_Country = req.body.Inv_Country;
-    var Inv_Zipcode = req.body.Inv_Zipcode;
-    var Inv_Lat = req.body.Inv_Lat;
-    var Inv_Lon = req.body.Inv_Lon;
-    var Inv_Photo = req.body.Inv_Photo;
-    var Inv_ID =0;
-    
-    mongoose.connect(mongourl, {useMongoClient: true});
-    const db = mongoose.connection;
-    db.on('error', console.error.bind(console, 'connection error'));
-    db.once('open', () => {
-        const Inventory = mongoose.model('Inventory', InventorySchema);
-        criteria=req.query;
-        Inventory.findOne(criteria, (err,results) => {
-            console.log(results.manager);
-            console.log(req.session.username);
-            if(results.manager==req.session.username){
-                if (err) return console.error(err);     
-                results.name = Inv_Name;
-                if(Inv_Type){results.type = Inv_Type};
-                if(Inv_Quan){results.quantity = Inv_Quan};  
-                if(Inv_Street){results.inventory_address.street = Inv_Street};
-                if(Inv_Build){results.inventory_address.building = Inv_Build};
-                if(Inv_Country){results.inventory_address.country = Inv_Country};
-                if(Inv_Zipcode){results.inventory_address.zipcode = Inv_Country};                         
-                if(Inv_ID){results.inventory_ID = Inv_ID};
-
-                //coord & photo not yet finish
-                //if(Inv_Lat){results.inventory_address.coord.latitude = Inv_Lat};
-                //if(Inv_Lon){results.inventory_address.coord.longitude = Inv_Lon};   
-                // if(Inv_Photo){results.photo = Inv_Photo};
-
-                results.save(function(err) {
-                    if (err) throw err;
-                    console.log("Name changed");
-                    db.close();
-                    res.render('/home/developer/proj/updateSuc.ejs');
-                })
-            }else{
-                console.log("you are not the owner");
-                res.redirect('/');
-            }
-        });
-    })
-}
-*/
 
 //api(name)
 const nameApi = (req,res,getName) => {
