@@ -26,6 +26,7 @@
             <li>Zipcode:<%= results.inventory_address[0].zipcode %></a></li>
             <li>GPS:<%= results.inventory_address[0].coord %></a></li>
             <li>Manager:<%= results.manager %></a></li>
+            <a href="/map?lat=<%= results.inventory_address[0].coord[0].latitude%>&lon=<%= results.inventory_address[0].coord[0].longitude%>"btn btn-primary" role="button">Map</a>
     </ul>
 </body>
 </html>
