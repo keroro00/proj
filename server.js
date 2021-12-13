@@ -293,7 +293,7 @@ const nameApi = (req,res,getName) => {
                  
             console.log(`# documents meeting the criteria ${JSON.stringify(criteria)}: ${results.length}`);
             if (results.length== 0){
-                res.status(500).json({"error": "missing name"});
+                res.status(500).json({});
             }
 
             for (var doc of results) {
@@ -335,7 +335,7 @@ const typeApi = (req,res,getType) => {
             console.log(`# documents meeting the criteria ${JSON.stringify(criteria)}: ${results.length}`);    
 
             if (results.length== 0){
-                res.status(500).json({"error": "missing type"});
+                res.status(500).json({});
             }
             
             for (var doc of results) {             
