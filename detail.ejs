@@ -26,9 +26,9 @@
             <li>Building:<%= results.inventory_address[0].building%></a></li>
             <li>Country:<%= results.inventory_address[0].country %></a></li>
             <li>Zipcode:<%= results.inventory_address[0].zipcode %></a></li>
-            <li>GPS:{<%= results.inventory_address[0].coord[0].lantitude%>,<%=results.inventory_address[0].coord[0].longitude %>}</a></li>
+            <li>GPS:{<%= results.inventory_address[0].coord[0].latitude%>,<%=results.inventory_address[0].coord[0].longitude %>}</a></li>
             <li>Manager:<%= results.manager %></a></li>
-            <a class="btn btn-primary" href="/map?lat=<%= results.inventory_address[0].coord[0].lantitude%>&lon=<%= results.inventory_address[0].coord[0].longitude%>"btn btn-primary" role="button">Map</a>
+            <a class="btn btn-primary" href="/map?lat=<%= results.inventory_address[0].coord[0].latitude%>&lon=<%= results.inventory_address[0].coord[0].longitude%>"btn btn-primary" role="button">Map</a>
     </ul>
 </body>
 </html>
