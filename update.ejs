@@ -13,15 +13,15 @@
     <h1>Inventory Management System</h1>
     <h2>Update Inventory</h2>
     <form action="/update" method="POST">
-        Name: <input type="text" name="Inv_Name" placeholder="Name" required><br><br>
-        Type: <input type="text" name="Inv_Type" placeholder="type of inventory"><br><br>
-        Quantity: <input type="text" name="Inv_Quan" placeholder="quantity"><br><br>
-        Street: <input type="text" name="Inv_Street" placeholder="Street"><br><br>
-        Building: <input type="text" name="Inv_Build" placeholder="Building"><br><br>
-        Country: <input type="text" name="Inv_Country" placeholder="Country"><br><br>
-        Zipcode: <input type="text" name="Inv_Zip" placeholder="Zipcode"><br><br>
-        GPS Latitude: <input type="text" name="Inv_Lat" placeholder="Latitude"><br><br>
-        GPS Longitude: <input type="text" name="Inv_Lon" placeholder="Longitude"><br><br>
+        Name: <input type="text" name="Inv_Name" placeholder="Name" value="<%=results.name%>" required><br><br>
+        Type: <input type="text" name="Inv_Type" placeholder="type of inventory" value="<%=results.type%>"><br><br>
+        Quantity: <input type="text" name="Inv_Quan" placeholder="quantity" value="<%=results.quantity%>"><br><br>
+        Street: <input type="text" name="Inv_Street" placeholder="Street" value="<%=results.inventory_address[0].street%>"><br><br>
+        Building: <input type="text" name="Inv_Build" placeholder="Building" value="<%=results.inventory_address[0].building%>"><br><br>
+        Country: <input type="text" name="Inv_Country" placeholder="Country" value="<%=results.inventory_address[0].country%>"><br><br>
+        Zipcode: <input type="text" name="Inv_Zip" placeholder="Zipcode" value="<%=results.inventory_address[0].zipcode%>"><br><br>
+        GPS Latitude: <input type="text" name="Inv_Lat" placeholder="Latitude" value="<%=results.inventory_address[0].coord[0].latitude%>"><br><br>
+        GPS Longitude: <input type="text" name="Inv_Lon" placeholder="Longitude" value="<%=results.inventory_address[0].coord[0].longitude%>"><br><br>
         Photo: <input type="text" name="Inv_Photo"><br><br>
         <div class="Submit_button"><button type="submit">Update</button></div>
         <input type="hidden" name="_id" placeholder="_id" value="<%=results._id%>"><br><br>
