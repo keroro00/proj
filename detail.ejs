@@ -3,6 +3,7 @@
 <title> Inventory Management System</title>
 <style>
     h1 {text-align: center;}
+    h2 {text-align: center;}
     .Submit_button{text-align: center;}
 </style>
 </head>
@@ -12,16 +13,19 @@
     </form>
     <a href="/delete?_id=<%= results._id%>"btn btn-primary" role="button">Delete</a>
     <a href="/update?_id=<%= results._id%>"btn btn-primary" role="button">Update</a>
-    <h1>Inventory Management System7</h1>
+    <h1>Inventory Management System</h1>
+    <h2>Detail of <%= results.name %> </h2>
     <ul>
 
-            <li>Inventory Name:<%= results.name %></a></li>
-            <li>Inventory Name:<%= results.type %></a></li>
-            <li>Inventory Name:<%= results.inventory_address %></a></li>
-            <li>Inventory Name:<%= results.manager %></a></li>
-            <li>Inventory Name:<%= results.name %></a></li>
-            <li>Inventory Name:<%= results.name %></a></li>
-
+            <li>Name:<%= results.name %></a></li>
+            <li>Type:<%= results.type %></a></li>
+            <li>Quantity:<%= results.quantity %></a></li>
+            <li>Street:<%= results.inventory_address[0].street%></a></li>
+            <li>Building:<%= results.inventory_address[0].building%></a></li>
+            <li>Country:<%= results.inventory_address[0].country %></a></li>
+            <li>Zipcode:<%= results.inventory_address[0].zipcode %></a></li>
+            <li>GPS:<%= results.inventory_address[0].coord %></a></li>
+            <li>Manager:<%= results.manager %></a></li>
     </ul>
 </body>
 </html>
