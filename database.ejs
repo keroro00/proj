@@ -14,10 +14,11 @@
     <form action="/logout" method="GET">
         <button onclick="">Logout</button>
     </form>
-    <ul>
+      <input style="width:100%" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search name:" name="bar">
+        <table>
         <% for (var doc of results) { %>
-            <li>Inventory Name: <a href="/detail?_id=<%= doc._id %>"><%= doc.name %></a></li>
+            <tr><td><a href="/detail?_id=<%= doc._id %>"><%= doc.name %></a></td></tr>
         <% } %>
-    </ul>
+       </table>
 </body>
 </html>
